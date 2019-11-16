@@ -1,5 +1,9 @@
 FROM archlinux/base
 
-ADD tini /usr/bin/tini
+ENV TINI_VERSION v0.18.0
 
-ENTRYPOINT ["/usr/bin/tini", "--"]
+# Add Tini
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/local/tini
+RUN chmod +x /tini
+
+ENTRYPOINT ["usr/local/bintini", "--"]
