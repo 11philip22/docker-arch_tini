@@ -5,7 +5,11 @@ node ("master") {
     stage ("checkout scm") {
         checkout scm
     }
-    
+
+    stage ("run dos2unix") {
+        sh "find . -type f -print0 | xargs -0 dos2unix"
+    }
+
     stage ("download tini") {
         sh "chmod +x download_tini.sh; ./download_tini.sh"
     }
