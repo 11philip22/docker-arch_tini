@@ -7,7 +7,7 @@ node ("master") {
     }
     
     stage ("download tini") {
-        sh "./download_tini.sh"
+        sh "chmod +x download_tini.sh; ./download_tini.sh"
     }
 
     stage ("docker build") {
